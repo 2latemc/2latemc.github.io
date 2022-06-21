@@ -4,11 +4,17 @@
 }
 
 body{
-    background: url("assets/background.png") no-repeat center center/cover;
     height: 100vh;
     overflow: hidden;
 }
-
+#background {
+    user-select: none;
+    bottom: 0px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+}
 .taskbarclock {
     user-select: none;
     -moz-user-select: none;

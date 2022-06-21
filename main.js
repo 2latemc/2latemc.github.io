@@ -23,7 +23,8 @@ var bg = document.getElementById("lb");
 var datel = document.getElementById("datel");
 var clockl = document.getElementById("clockl");
 var pressSpace = document.getElementById("pressSpace");
-var pcOnly;
+var pcOnly = document.getElementById("pcOnly");
+var background = document.getElementById("background");
 
 function enable() {
     displayClockTime();
@@ -61,6 +62,16 @@ function unlock() {
     //}
 
     }
+}
+
+
+//document.addEventListener("mousemove",parallax);
+
+
+function parallax(e) {
+    var x = (e.x - 1000) / 200;
+    var y = (e.y - 1000) / 200;
+    background.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
 }
 
 window.addEventListener("load", function() {
