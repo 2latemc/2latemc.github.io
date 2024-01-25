@@ -1,0 +1,45 @@
+html {
+    background: linear-gradient(to bottom, #1a3b3d, #1d1e1e) no-repeat;
+    font-family: 'Libre Barcode 39', system-ui;
+    height:auto;
+    min-height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    color: white;
+
+}
+
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+}
+
+.title {
+    font-family: 'Libre Barcode 39 Text', system-ui;
+    font-size: 120%;
+}
+
+.noListStyle {
+    list-style: none;
+}
+.icon {
+    height: 10%;
+    width: 10%;
+}
