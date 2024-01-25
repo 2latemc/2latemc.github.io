@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect specific pages
+RewriteRule ^cyberjunk$ /pages/redirects/cyberjunk.html [L]
+RewriteRule ^discord$ /pages/redirects/discord.html [L]
+RewriteRule ^privacypolicy$ /pages/redirects/privacypolicy.html [L]
+RewriteRule ^start$ /pages/redirects/start.html [L]
+
+# Set default page to index.html
+DirectoryIndex index.html
