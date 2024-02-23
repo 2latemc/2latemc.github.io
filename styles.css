@@ -1,13 +1,19 @@
 html {
-    background: linear-gradient(to bottom, #275b5d, #000000) no-repeat;
+    background: linear-gradient(to bottom, #255658, #000000) no-repeat;
     font-family: 'Libre Barcode 39', system-ui;
     min-height: 100%;
 }
 
 body {
+    color-scheme: only light;
+    background: rgba(255, 0, 0, 0);
+}
+:root {
+    color-scheme: only light;
 }
 
 .wrapper {
+    color-scheme: only light;
     color: white;
     display: flex;
     justify-content: center;
@@ -15,26 +21,37 @@ body {
     align-self: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 230px;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0);
 }
+
+@media (prefers-color-scheme: dark) {
+    .wrapper {
+        background: transparent;
+        color: white;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .wrapper {
         margin-top: 30px;
         font-size: 70%;
     }
+
     .wrapper .line {
         width: 250px;
         margin-bottom: -3px;
     }
+
     .wrapper .icon {
         height: 50px;
     }
+
     .wrapper .subtitle {
         font-size: 130%;
     }
 
 }
-
 
 
 .noselect {
@@ -56,6 +73,8 @@ body {
     font-size: 800%;
     margin-bottom: 10px;
     text-align: center;
+    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
+
 }
 
 .line {
@@ -64,7 +83,8 @@ body {
     left: 556px;
     top: 527px;
     background: #D9D9D9;
-
+    color: #D9D9D9;
+    color-scheme: only light;
 }
 
 .iconsWrapper {
@@ -73,8 +93,24 @@ body {
     width: 100%;
     margin-top: 5px;
 }
-
+.noHrefDisplay {
+    color: transparent;
+}
 .icon {
     height: 60px;
     padding: 10px 0 0 10px;
+    transition: transform 0.08s, filter 0.1s;
+    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
+}
+.icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.8));
+    transition: transform 0.08s, filter 0.1s;
+
+}
+.iconsChildWrapper:hover .icon:not(:hover) {
+    filter: blur(2px);
+    transition: transform 0.08s, filter 0.1s;
+
 }
