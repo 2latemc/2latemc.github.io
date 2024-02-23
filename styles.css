@@ -1,25 +1,40 @@
 html {
-    background: linear-gradient(to bottom, #1a3b3d, #1d1e1e) no-repeat;
+    background: linear-gradient(to bottom, #275b5d, #000000) no-repeat;
     font-family: 'Libre Barcode 39', system-ui;
-    height:auto;
     min-height: 100%;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    min-height: 100vh;
 }
 
 .wrapper {
     color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 230px;
+}
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        margin-top: 30px;
+        font-size: 70%;
+    }
+    .wrapper .line {
+        width: 250px;
+        margin-bottom: -3px;
+    }
+    .wrapper .icon {
+        height: 50px;
+    }
+    .wrapper .subtitle {
+        font-size: 130%;
+    }
 
 }
+
 
 
 .noselect {
@@ -31,15 +46,35 @@ body {
     user-select: none; /* Non-prefixed version, currently */
 }
 
-.title {
-    font-family: 'Libre Barcode 39 Text', system-ui;
-    font-size: 120%;
+.subtitle {
+    font-family: "Mohave", sans-serif;
+    text-align: center;
 }
 
-.noListStyle {
-    list-style: none;
+.title {
+    font-family: 'Libre Barcode 39 Text', system-ui;
+    font-size: 800%;
+    margin-bottom: 10px;
+    text-align: center;
 }
+
+.line {
+    width: 329px;
+    height: 2px;
+    left: 556px;
+    top: 527px;
+    background: #D9D9D9;
+
+}
+
+.iconsWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+}
+
 .icon {
-    height: 10%;
-    width: 10%;
+    height: 60px;
+    padding: 10px 0 0 10px;
 }
