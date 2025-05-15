@@ -4,12 +4,16 @@ html {
     background: linear-gradient(to bottom, #255658, #000000) no-repeat;
     font-family: 'Libre Barcode 39', system-ui;
     min-height: 100%;
+    overscroll-behavior: none; /* prevents bounce on iOS/Android */
+    touch-action: none; /* Optional: disables all touch scrolling */
 }
 
 body {
     color-scheme: only light;
     background: transparent;
     color: white;
+    overscroll-behavior: none; /* prevents bounce on iOS/Android */
+    touch-action: none; /* Optional: disables all touch scrolling */
     user-select: none; /* disables text selection */
 }
 
@@ -60,7 +64,7 @@ body {
 }
 
 .icon {
-    height: 60px; /* increased from 60px */
+    height: 60px;
     padding: 10px 0 0 10px;
     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
     transition: transform 0.08s ease, filter 0.1s ease;
@@ -75,6 +79,27 @@ body {
 .iconsChildWrapper:hover .icon:not(:hover) {
     filter: blur(2px);
     transition: filter 0.1s ease;
+}
+
+/* Infobox animations */
+@keyframes fadeInBox {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInSlideLeft {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInSlideRight {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Icon description box */
@@ -93,20 +118,37 @@ body {
     text-align: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
     pointer-events: none; /* Prevent it from blocking hover */
+    transition: none;
+    transform: none;
 }
-/* Show description only when hovering iconsWrapper */
+.iconDescription p {
+    font-size: 1.1rem;
+}
+.iconDescription h3 {
 
-.iconsWrapper:hover .iconDescription {
-    opacity: 1;
-    visibility: visible;
+    font-size: 1.3rem;
 }
 
-.iconsWrapper:hover .iconDescription {
-    opacity: 1;
-    visibility: visible;
+.iconDescription img {
+    margin-top: 0.3em;
+    margin-bottom: 0.7em;
+    border-radius: 0.5em;
+    height: 18em;
 }
+
+.iconDescription.show {
+    visibility: visible;
+    animation-fill-mode: forwards;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+}
+
+/* Animation classes for different fade-in styles */
+.iconDescription.fadeInBox {
+    animation-name: fadeInBox;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 600px) {
@@ -115,15 +157,18 @@ body {
         font-size: 70%;
     }
 
+    .title {
+        font-size: 6rem; /* 500% = 5rem approx */
+        margin-bottom: 5px;
+    }
     .line {
         width: 250px;
         margin-bottom: -3px;
     }
 
     .icon {
-        height: 60px; /* keep it smaller on mobile */
+        height: 40px; /* keep it smaller on mobile */
         padding-left: 0;
-        padding-top: 0;
     }
     .subtitle {
         font-size: 130%;
