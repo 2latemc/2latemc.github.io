@@ -1,3 +1,5 @@
+/* Base styles */
+
 html {
     background: linear-gradient(to bottom, #255658, #000000) no-repeat;
     font-family: 'Libre Barcode 39', system-ui;
@@ -6,85 +8,39 @@ html {
 
 body {
     color-scheme: only light;
-    background: rgba(255, 0, 0, 0);
-}
-:root {
-    color-scheme: only light;
+    background: transparent;
+    color: white;
+    user-select: none; /* disables text selection */
 }
 
 .wrapper {
-    color-scheme: only light;
-    color: white;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 100px;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-@media (prefers-color-scheme: dark) {
-    .wrapper {
-        background: transparent;
-        color: white;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .wrapper {
-        margin-top: 30px;
-        font-size: 70%;
-    }
-
-    .wrapper .line {
-        width: 250px;
-        margin-bottom: -3px;
-    }
-
-    .wrapper .icon {
-        height: 50px;
-    }
-
-    .wrapper .subtitle {
-        font-size: 130%;
-    }
-
-}
-
-
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently */
-}
-
-.subtitle {
-    font-family: "Mohave", sans-serif;
-    text-align: center;
+    background-color: transparent;
+    color: white;
 }
 
 .title {
     font-family: 'Libre Barcode 39 Text', system-ui;
-    font-size: 800%;
+    font-size: 8rem; /* 800% = 8rem approx */
     margin-bottom: 10px;
     text-align: center;
     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
-
 }
 
 .line {
     width: 329px;
     height: 2px;
-    left: 556px;
-    top: 527px;
     background: #D9D9D9;
-    color: #D9D9D9;
-    color-scheme: only light;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
 }
 
 .iconsWrapper {
@@ -92,25 +48,149 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 5px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
 }
-.noHrefDisplay {
-    color: transparent;
-}
-.icon {
-    height: 60px;
-    padding: 10px 0 0 10px;
-    transition: transform 0.08s, filter 0.1s;
-    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
-}
-.icon:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.8));
-    transition: transform 0.08s, filter 0.1s;
 
+.iconsChildWrapper {
+    display: flex;
+    gap: 10px; /* reduced from 20px */
+    position: relative;
 }
+
+.icon {
+    height: 60px; /* increased from 60px */
+    padding: 10px 0 0 10px;
+    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.3));
+    transition: transform 0.08s ease, filter 0.1s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+}
+
 .iconsChildWrapper:hover .icon:not(:hover) {
     filter: blur(2px);
-    transition: transform 0.08s, filter 0.1s;
+    transition: filter 0.1s ease;
+}
 
+/* Icon description box */
+
+.iconDescription {
+    position: absolute;
+    top: calc(100% + 10px);
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none; /* so it doesn’t interfere with hover */
+}
+
+/* Show description only when hovering iconsWrapper */
+
+.iconsWrapper:hover .iconDescription {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Empty default content to avoid weird leftovers */
+
+.iconDescription h3::after,
+.iconDescription p::after {
+    content: "";
+}
+
+/* Content changes per icon hovered */
+
+.iconsChildWrapper a:nth-child(1):hover ~ .iconDescription h3::after {
+    content: "ArtStation";
+}
+.iconsChildWrapper a:nth-child(1):hover ~ .iconDescription p::after {
+    content: "Explore my 3D environments and artwork.";
+}
+
+.iconsChildWrapper a:nth-child(2):hover ~ .iconDescription h3::after {
+    content: "LinkedIn";
+}
+.iconsChildWrapper a:nth-child(2):hover ~ .iconDescription p::after {
+    content: "Connect with me professionally.";
+}
+
+.iconsChildWrapper a:nth-child(3):hover ~ .iconDescription h3::after {
+    content: "YouTube";
+}
+.iconsChildWrapper a:nth-child(3):hover ~ .iconDescription p::after {
+    content: "Find the games I programmed.";
+}
+
+.iconsChildWrapper a:nth-child(4):hover ~ .iconDescription h3::after {
+    content: "itch.io";
+}
+.iconsChildWrapper a:nth-child(4):hover ~ .iconDescription p::after {
+    content: "Play my indie games.";
+}
+
+.iconsChildWrapper a:nth-child(5):hover ~ .iconDescription h3::after {
+    content: "GitHub";
+}
+.iconsChildWrapper a:nth-child(5):hover ~ .iconDescription p::after {
+    content: "View my coding projects.";
+}
+
+.iconsChildWrapper a:nth-child(6):hover ~ .iconDescription h3::after {
+    content: "Discord";
+}
+.iconsChildWrapper a:nth-child(6):hover ~ .iconDescription p::after {
+    content: "Join my community server.";
+}
+
+.iconsChildWrapper a:nth-child(7):hover ~ .iconDescription h3::after {
+    content: "Email";
+}
+.iconsChildWrapper a:nth-child(7):hover ~ .iconDescription p::after {
+    content: "Contact me directly via email.";
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        margin-top: 30px;
+        font-size: 70%;
+    }
+
+    .line {
+        width: 250px;
+        margin-bottom: -3px;
+    }
+
+    .icon {
+        height: 60px; /* keep it smaller on mobile */
+        padding-left: 0;
+        padding-top: 0;
+    }
+    .subtitle {
+        font-size: 130%;
+    }
+}
+
+/* Dark mode fallback */
+
+@media (prefers-color-scheme: dark) {
+    .wrapper {
+        background: transparent;
+        color: white;
+    }
 }
