@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const descriptions = [
       { title: "ArtStation", text: "Explore my 3D environments and artwork." , imgPath:"assets/artstationthumbnail.jpg" },
       { title: "LinkedIn", text: "Connect with me on LinkedIn." , imgPath:"" },
-      { title: "YouTube", text: "Watch my YouTube Unreal Engine related Tutorials", imgPath:""  },
-      { title: "itch.io", text: "Play my indie games." , imgPath:"" },
+      { title: "YouTube", text: "Watch my YouTube Unreal Engine related Tutorials", imgPath:"assets/ytThumbnail.jpg"  },
+      { title: "itch.io", text: "Play my indie games." , imgPath:"assets/itchthumbnail.png" },
       { title: "GitHub", text: "View my coding projects." , imgPath:"" },
       { title: "Discord", text: "Join my community server." , imgPath:"" },
       { title: "Email", text: "Contact me directly via email.", imgPath:"" }
