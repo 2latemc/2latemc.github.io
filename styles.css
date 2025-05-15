@@ -78,10 +78,9 @@ body {
 }
 
 /* Icon description box */
-
 .iconDescription {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 80px);
     width: 100%;
     padding: 10px;
     background: rgba(255, 255, 255, 0.15);
@@ -95,9 +94,8 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
-    pointer-events: none; /* so it doesn’t interfere with hover */
+    pointer-events: none; /* Prevent it from blocking hover */
 }
-
 /* Show description only when hovering iconsWrapper */
 
 .iconsWrapper:hover .iconDescription {
@@ -105,64 +103,10 @@ body {
     visibility: visible;
 }
 
-/* Empty default content to avoid weird leftovers */
-
-.iconDescription h3::after,
-.iconDescription p::after {
-    content: "";
+.iconsWrapper:hover .iconDescription {
+    opacity: 1;
+    visibility: visible;
 }
-
-/* Content changes per icon hovered */
-
-.iconsChildWrapper a:nth-child(1):hover ~ .iconDescription h3::after {
-    content: "ArtStation";
-}
-.iconsChildWrapper a:nth-child(1):hover ~ .iconDescription p::after {
-    content: "Explore my 3D environments and artwork.";
-}
-
-.iconsChildWrapper a:nth-child(2):hover ~ .iconDescription h3::after {
-    content: "LinkedIn";
-}
-.iconsChildWrapper a:nth-child(2):hover ~ .iconDescription p::after {
-    content: "Connect with me professionally.";
-}
-
-.iconsChildWrapper a:nth-child(3):hover ~ .iconDescription h3::after {
-    content: "YouTube";
-}
-.iconsChildWrapper a:nth-child(3):hover ~ .iconDescription p::after {
-    content: "Find the games I programmed.";
-}
-
-.iconsChildWrapper a:nth-child(4):hover ~ .iconDescription h3::after {
-    content: "itch.io";
-}
-.iconsChildWrapper a:nth-child(4):hover ~ .iconDescription p::after {
-    content: "Play my indie games.";
-}
-
-.iconsChildWrapper a:nth-child(5):hover ~ .iconDescription h3::after {
-    content: "GitHub";
-}
-.iconsChildWrapper a:nth-child(5):hover ~ .iconDescription p::after {
-    content: "View my coding projects.";
-}
-
-.iconsChildWrapper a:nth-child(6):hover ~ .iconDescription h3::after {
-    content: "Discord";
-}
-.iconsChildWrapper a:nth-child(6):hover ~ .iconDescription p::after {
-    content: "Join my community server.";
-}
-
-.iconsChildWrapper a:nth-child(7):hover ~ .iconDescription h3::after {
-    content: "Email";
-}
-.iconsChildWrapper a:nth-child(7):hover ~ .iconDescription p::after {
-    content: "Contact me directly via email.";
-}
-
 /* Responsive */
 
 @media only screen and (max-width: 600px) {
