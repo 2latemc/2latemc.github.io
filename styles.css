@@ -7,7 +7,7 @@ html {
     overscroll-behavior: none; /* prevents bounce on iOS/Android */
     touch-action: none; /* Optional: disables all touch scrolling */
 }
-
+html, body {margin: 0; height: 100%; overflow: hidden}
 body {
     color-scheme: only light;
     background: transparent;
